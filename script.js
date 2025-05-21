@@ -356,7 +356,7 @@ document.getElementById('send-schedule-btn').addEventListener('click', async () 
             type: "application/vnd.lime.select+json",
             content: {
                 scope: "immediate",
-                text: "Resumo:\nNavio: MSC BIANCA\nPorto de embarque: Vila do Conde\nPorto destino: Jebel Ali\nETA: 30/Maio/2025\nPeso/container: 25.000 kg\nPaletizado: ✅\n\nVocê confirma o aceite dessas informações?",
+                text: "📑 Resumo:\n<b>Navio</b>: MSC BIANCA\n<b>Porto de embarque</b>: Vila do Conde\n<b>Porto destino</b>: Jebel Ali\n<b>ETA</b>: 30/Maio/2025\n<b>Peso/container</b>: 25.000 kg\n<b>Paletizado</b>: ✅\n\n<b>Você confirma o aceite dessas informações?</b>",
                 options: [
                     { order: 1, text: "Sim, aprovado" },
                     { order: 2, text: "Não, desejo solicitar ajustes" }
