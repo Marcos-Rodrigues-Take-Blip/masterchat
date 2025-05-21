@@ -32,8 +32,8 @@ class BlipChatWidget {
         messages = [],
         messagesOption = [],
         messageDelay = 0,
-        mainColor = '#E30613', // Vermelho Masterboi
-        secondaryColor = '#FFFFFF',
+        mainColor = '#FFFFFF', // Vermelho Masterboi
+        secondaryColor = '#FF0000',
         transparent = 'transparent'
     ) {
         this.messages = messages;
@@ -135,6 +135,8 @@ class BlipChatWidget {
                     });
                 }
             })
+            
+            
             .build();
         this.widgetElement = document.querySelector(BLIP_CHAT_CONTAINER_ID_SELECTOR);
         const icon = document.getElementById('blip-chat-icon');
@@ -143,25 +145,26 @@ class BlipChatWidget {
 
     setUpCustomCss() {
         this.customStyle = `
-            .blip-card .bubble.left, .blip-card .bubble.middle {
-                color: #292929 !important;
-            }
-            .select .options li {
-                color: ${this.mainColor} !important;
-                background-color: ${this.secondaryColor} !important;
-                border-color: ${this.mainColor} !important;
-            }
-            #blip-chat-container {
-                height: 600px !important;
-                max-height: 80vh !important;
-            }
-            #blip-chat-window {
-                height: 100% !important;
-            }
-            #message-list {
-                height: calc(100% - 60px) !important;
-            }
-        `;
+    .blip-card .bubble.left, .blip-card .bubble.middle {
+        color: #292929 !important;
+    }
+    .select .options li {
+        color: ${this.mainColor} !important;
+        background-color: ${this.secondaryColor} !important;
+        border-color: ${this.mainColor} !important;
+    }
+    #blip-chat-container {
+        height: 100vh !important;
+        max-height: 100vh !important;
+    }
+    #blip-chat-window {
+        height: 100% !important;
+    }
+    #message-list {
+        height: calc(100% - 60px) !important;
+    }
+`;
+
     }
 
     addContainerMessage() {
@@ -418,37 +421,3 @@ document.getElementById('emit-pre-proforma-btn').addEventListener('click', async
         }
     }
 });
-
-// JSONs (mantidos para referência futura)
-const remessasData = {
-    "remessas_internacionais": [
-        {"id_remessa": "MBI-2025-001", "destino": "Japão", "custo_frete": {"valor": 160000}, "tempo_estimado_transporte": "26 dias"},
-        {"id_remessa": "MBI-2025-002", "destino": "Alemanha", "custo_frete": {"valor": 115000}, "tempo_estimado_transporte": "20 dias"},
-        {"id_remessa": "MBI-2025-003", "destino": "Coreia do Sul", "custo_frete": {"valor": 145000}, "tempo_estimado_transporte": "22 dias"},
-        {"id_remessa": "MBI-2025-004", "destino": "Emirados Árabes Unidos", "custo_frete": {"valor": 98000}, "tempo_estimado_transporte": "17 dias"},
-        {"id_remessa": "MBI-2025-005", "destino": "Reino Unido", "custo_frete": {"valor": 120000}, "tempo_estimado_transporte": "20 dias"},
-        {"id_remessa": "MBI-2025-006", "destino": "Austrália", "custo_frete": {"valor": 135000}, "tempo_estimado_transporte": "25 dias"},
-        {"id_remessa": "MBI-2025-007", "destino": "Canadá", "custo_frete": {"valor": 125000}, "tempo_estimado_transporte": "20 dias"},
-        {"id_remessa": "MBI-2025-008", "destino": "Rússia", "custo_frete": {"valor": 170000}, "tempo_estimado_transporte": "27 dias"},
-        {"id_remessa": "MBI-2025-009", "destino": "Argentina", "custo_frete": {"valor": 45000}, "tempo_estimado_transporte": "7 dias"},
-        {"id_remessa": "MBI-2025-010", "destino": "África do Sul", "custo_frete": {"valor": 140000}, "tempo_estimado_transporte": "20 dias"}
-    ]
-};
-
-const operacionalData = {
-    "frigorifico": {
-        "unidades_frigorificas": [
-            {"nome": "Unidade Salvador", "faturamento_semestre": 4229217.07},
-            {"nome": "Unidade Fortaleza", "faturamento_semestre": 3877455.69},
-            {"nome": "Unidade Recife", "faturamento_semestre": 3525094.31},
-            {"nome": "Unidade São Luís", "faturamento_semestre": 3173332.93}
-        ]
-    },
-    "cortes_de_carne": [
-        {"tipo": "Picanha", "quantidade_distribuida_kg": 50000},
-        {"tipo": "Costela", "quantidade_distribuida_kg": 70000},
-        {"tipo": "Filé Mignon", "quantidade_distribuida_kg": 32000},
-        {"tipo": "Coxão Mole", "quantidade_distribuida_kg": 60000},
-        {"tipo": "Fraldinha", "quantidade_distribuida_kg": 45000}
-    ]
-};
