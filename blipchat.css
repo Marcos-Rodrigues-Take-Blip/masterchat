@@ -1,0 +1,245 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    cursor: pointer;
+}
+
+@font-face {
+    font-family: "carbona blip";
+    src: url("font-47.ttf"); /* Substitua por URL ou caminho correto */
+    fallback: "Arial", sans-serif;
+}
+
+.blip-card .bubble.left, .blip-card .bubble.middle {
+    color: #292929 !important;
+}
+
+.blip-chat-icon {
+    height: auto !important;
+    max-height: 6.25em;
+}
+
+.message-bubble {
+    font-family: "carbona blip", Arial, sans-serif;
+    position: relative;
+    display: flex;
+    flex-flow: row wrap;
+    background: #FFD1D1; /* Tom claro de vermelho Masterboi */
+    color: #3d3d3d;
+    width: auto;
+    max-width: 15em;
+    border-radius: 0.8125em 0.8125em 0.125em 0.8125em;
+    box-shadow: 0.0625em 0.25em 0.5625em rgba(0, 0, 0, 0.1);
+    z-index: 980;
+    animation: toggle-bubble 0.5s ease-out;
+    line-height: 1.5em;
+    transform-origin: 100% 100%;
+}
+
+.textContainer {
+    padding: 1em 1.5em;
+}
+
+.message-bubble::after {
+    bottom: 0;
+    content: '';
+    position: absolute;
+    left: calc(100% - 0.9375em);
+    width: 0;
+    border: 0.875em solid transparent;
+    border-bottom-color: #FFD1D1;
+    border-radius: 0.28125em;
+}
+
+.message-bubble::before {
+    bottom: 0;
+    content: '';
+    position: absolute;
+    left: calc(100% - 0.75em);
+    width: 0;
+    border: 0.9375em solid transparent;
+    border-bottom-color: rgba(0, 0, 0, 0.05);
+    filter: blur(0.125em);
+    border-radius: 0.28125em;
+}
+
+.message-bubble .close-button {
+    position: absolute;
+    right: 0.625em;
+    top: 0.9375em;
+    width: 0.7em;
+    height: 0.7em;
+    opacity: 0.3;
+}
+
+.message-bubble .close-button:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.message-bubble .close-button:before,
+.message-bubble .close-button:after {
+    position: absolute;
+    content: ' ';
+    height: 0.8em;
+    width: 0.125em;
+    background-color: #333;
+}
+
+.message-bubble .close-button:before {
+    transform: rotate(45deg);
+}
+
+.message-bubble .close-button:after {
+    transform: rotate(-45deg);
+}
+
+@keyframes toggle-bubble {
+    from {
+        transform: scale(0.1);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+#blip-chat-container {
+    display: inline-flex;
+    flex-direction: row-reverse;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 18px;
+}
+
+#blip-chat-container>#blip-chat-open-iframe {
+    position: static !important;
+    background-size: contain;
+    box-shadow: none !important;
+    width: auto !important;
+    height: auto !important;
+}
+
+#blip-chat-icon {
+    position: static;
+    width: auto !important;
+    height: auto !important;
+    max-width: 3.75em !important;
+    border-radius: 0% !important;
+}
+
+#blip-chat-close-icon {
+    height: auto !important;
+    background-color: #E30613; /* Vermelho Masterboi */
+}
+
+#blip-chat-header {
+    background: #E30613 !important; /* Vermelho Masterboi */
+}
+
+#blip-chat-icon:hover {
+    transform: translateY(-2px);
+}
+
+.option-message {
+    font-family: "carbona blip", Arial, sans-serif;
+    margin-top: 0.3125em;
+    width: auto;
+    z-index: 980;
+    font-size: auto;
+}
+
+.option-message li {
+    list-style: none !important;
+    margin-top: 0.3125em !important;
+    text-align: right !important;
+    animation: Appearing2 2s ease-out !important;
+}
+
+.option-message li:nth-child(2n + 1) {
+    animation: Appearing 1s ease-out !important;
+}
+
+@keyframes Appearing {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes Appearing2 {
+    from {
+        transform: translateX(300%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+.option-message li a {
+    display: inline-block !important;
+    padding: 0.3125em 0.9375em !important;
+    background-color: #E30613 !important; /* Vermelho Masterboi */
+    margin-top: 0.3125em !important;
+    border-radius: 0.8em !important;
+    color: #ffffff !important;
+    text-decoration: none !important;
+    transition: 0.2s ease-in !important;
+    box-shadow: 0.0625em 0.125em 0.375em rgba(0, 0, 0, 0.1) !important;
+    font-weight: 400 !important;
+}
+
+.option-message li a:hover {
+    transform: scale(1.1) !important;
+}
+
+#blip-chat-notifications {
+    position: absolute !important;
+    bottom: 35px !important;
+    right: -4px !important;
+}
+
+.containerMessage {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+@media screen and (max-width: 480px),
+screen and (max-height: 420px) {
+    #blip-chat-container {
+        position: fixed !important;
+        display: inline-flex !important;
+        height: auto !important;
+        margin-bottom: 40px;
+        margin-right: 20px;
+        margin-left: 20px;
+    }
+    #blip-chat-container #blip-chat-iframe {
+        position: fixed !important;
+    }
+}
+
+@media screen and (max-width: 280px) and (min-width: 0) {
+    #blip-chat-container {
+        margin-right: -20px;
+        margin-bottom: -20px;
+    }
+    #blip-chat-container #blip-chat-iframe {
+        position: fixed !important;
+    }
+}
+
+@media screen and (max-width: 920px) and (min-width: 481px) {
+    #blip-chat-container {
+        margin-right: -40px;
+    }
+    #blip-chat-container #blip-chat-iframe {
+        position: fixed !important;
+    }
+}
